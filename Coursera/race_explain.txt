@@ -1,0 +1,27 @@
+The code has three main components :
+
+	1) Global boolean variable 'flag'
+	2) Function to print number and flag
+	3) Go routines
+	
+The function, accepts an integer value, sets the flag to true if number is even, false otherwise.
+
+Under normal execution ::
+
+	The function sets the flag as per the number (eg : if num is 2, flag is true, if num is 3, flag is false) and prints the same.
+	
+Using go routines ::
+
+	The function still alters the flags, however the value of the flag is altered by another go routine before the funtions prints it.
+	
+Race condition ::
+
+	Sicne the variable flag is shared among all go routines, the value is being altered by a routne before it is printed by the routine in execution there by creating issue of DIRTY READ.
+	
+
+
+TLDR :
+
+what is the race condition ? :: the varaible flag is altered without synchronization
+
+why does it occur ? :: go routines alter the flag before execution of one routine is completed, i.e. due to interleaving of instructions. 

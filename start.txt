@@ -1,0 +1,8 @@
+To initialize path
+
+export PATH=$PATH:/usr/local/go/bin
+
+To Execute
+
+go build fine_name.go
+./file_name
